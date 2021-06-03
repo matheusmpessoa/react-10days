@@ -1,0 +1,16 @@
+.user {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.user--image img {
+  border: 2px solid pink;
+  border-radius: 100px;
+  width: 40px;
+}
+
+.user--name {
+  font-family: 'Asap', sans-serif;
+  font-size: 15px;
+}
