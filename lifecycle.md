@@ -13,7 +13,7 @@ Mounting -> Updating -> Unmounting | Errors
 1. *constructor* - primeira instância do componente.
 2. *static getDerivedStateFromProps* - possui a função de garantir que o estado e os adereços estejam sincronizados para quando for necessário.
 3. *static getDerivedStateFromProps* - o próximo método de ciclo de vida na linha é o método de renderização.
-4. *componentDidMount* - após o render ser chamado o componente é montado no DOM e o método componentDidMount é chamado.
+4. *componentDidMount* - o método é chamado logo após o primeiro render finalizar.
 
 ## Updating lifecycle
 1. *static getDerivedStateFromProps* - primeiro método do lifecycle a ser chamado durante a fase de atualização
