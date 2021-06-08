@@ -6,9 +6,11 @@ Hooks adicionais:
 * useImperativeHandle
 * useLayoutEffect
 * useReducer
-* useMemo
-* useCallback
 * useDebug
+
+Hooks mais utilizados para resolver problemas de perfomance:
+* useCallback
+* useMemo
 
 ---
 
@@ -110,13 +112,13 @@ const [state, dispatch] = useReducer(
 );
 ```
 
-useReducer completo
+useReducer completo:
 ```js
 function init(initialCount) {
   return {count: initialCount};
 }
 
-function reducer(state, action) {
+function reducer(state, action, init) {
   switch (action.type) {
     case 'increment':
       return {count: state.count + 1};
@@ -128,4 +130,51 @@ function reducer(state, action) {
       throw new Error();
   }
 }
+
+function Counter({initialCount}) {
+  const [state, dispatch] = useReducer(reducer, initialCount, init);
+  return (
+    <>
+      Count: {state.count}
+      <button
+        onClick={() => dispatch({type: 'reset', payload: initialCount})}>
+
+        Reset
+      </button>
+      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
+    </>
+  );
+}
 ```
+
+---
+
+## useCallback
+Utilizado para criar uma referência única pra uma função e o React saber que é ela mesma e evitar atualizações desnecessárias. Sua referência só será diferente caso seus parâmetros mudem.
+
+
+
+## useMemo
+*useMemo* memoriza os parâmetros e o retorno de uma função complexa, que tem um custo para ser processada. Possível utiliza-lo para economizar tempo e processamento.
+
+A função passada para useMemo será executa durante a renderização.
+
+Imagine que você tenha uma função que receba alguns parâmetros e faça um cálculo usando esses parâmetros, quando esses parâmetros forem iguais novamente, ele irá retornar o valor anterior, sem precisar calcula-lo.
+
+```js
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+```
+
+```js
+import { useMemo } from "react";
+
+export default function Component() {
+  const value = useMemo(() => {
+    // Faz algo complexo e demorado.
+    // Se x e y já tiverem sido usados, irá retornar o valor anterior memorizado.
+  }, [x, y]);
+}
+```
+
+
