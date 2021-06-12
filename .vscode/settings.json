@@ -1,3 +1,4 @@
 {
-  "liveServer.settings.multiRootWorkspaceName": "react-10days"
+  "liveServer.settings.multiRootWorkspaceName": "react-10days",
+  "git.ignoreLimitWarning": true
 }
