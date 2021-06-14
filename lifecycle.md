@@ -1,5 +1,5 @@
 # Lifecycle
-Possui 4 momentos
+Possui 4 momentos:
 * Mounting (adicionando nodes ao DOM)
 * Updating (alterando nodes existentes no DOM)
 * Unmounting (removendo nodes do DOM)

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DigitalClock = () => {
+const DigitalClockFunctional = () => {
   let time = null;
   let timeStr = 'clock';
 
@@ -15,4 +15,4 @@ const DigitalClock = () => {
   return <div>${timeStr}</div>
 }
 
-export default DigitalClock;
+export default DigitalClockFunctional;

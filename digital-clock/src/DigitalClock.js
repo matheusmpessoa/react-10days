@@ -1,21 +1,35 @@
 import React, {Component} from 'react';
+import './DigitalClock.css';
 
 class DigitalClock extends Component {
 
-  render() {
-    let time = null;
-    let timeStr = 'clock';
+  constructor(props) {
+    super(props);
 
+    // Inicializando
+    this.state = {
+      time: this.getTimeString(new Date())
+    };
+
+    // Dando vida ao relógio
     setInterval(() => {
-      time = new Date();
-      timeStr = `
+      this.setState({
+        time: this.getTimeString(new Date())
+      })
+    }, 1000);
+  }
+
+  getTimeString(time) {
+    return `
       ${time.getHours()}:
       ${time.getMinutes()}:
       ${time.getSeconds()}`;
-    }, 1000);
+  }
 
+  render() {
+    console.log('render');
     return (
-      <div>{timeStr}</div>
+      <div className="clock">{this.state.time}</div>
     )
   }
 }
