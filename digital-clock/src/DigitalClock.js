@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 class DigitalClock extends Component {
+
   render() {
     let time = null;
     let timeStr = 'clock';

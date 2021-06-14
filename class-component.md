@@ -12,7 +12,7 @@ function FunctionalComponent() {
 ```
 
 ## Class components
-- Render JSX
+- Renderiza JSX
 - JSX output pode ser configurada usando props
 - Gerenciamento de estado
 - Métodos de lifecycle
@@ -31,6 +31,11 @@ class ClassComponent extends Component {
 ---
 
 ## Props
+Definições:
+- *props* são objetos passados para o component (como parâmetro)
+- São 'configurações' de um componente
+- *Props* são o input do componente
+- Valores imutáveis e que não devem ser alterados
 
 Propriedade sendo passada através de um componente
 ```js
@@ -45,7 +50,6 @@ const FunctionalComponent = (props) => {
 ```
 
 Em uma classe é necessário usar *this* para se referir ao *props*.
-
 ```js
 class ClassComponent extends React.Component {
   render() {
@@ -55,16 +59,15 @@ class ClassComponent extends React.Component {
 }
 ```
 
----
-
-## State vs props
-*Props* e *state* são objetos em JS.
-
-*props* são passados para o component (como parâmetro). São 'configurações' de um componente. São recebidos de cima e imutáveis no que diz respeito ao componente que os recebe.
-
-*state* é gerenciado dentro do component (como variáveis declaradas dentro de uma função). O *state* começa com um valor padrão quando um componente é montado e, em seguida, sofre mutações no tempo (principalmente geradas a partir de eventos do usuário).
-
-Um componente gerencia seu próprio estado internamente, mas - além de definir um estado inicial - não precisa mexer no estado de seus filhos.
+## State
+Definições:
+- Pode ser definido em *class components*.
+- É um objeto JS que contem informação relacionada ao componente
+- Pertence ao componente e é gerenciado dentro do mesmo (como variáveis declaradas dentro de uma função)
+- *state* deve ser inicializado quando o componente é montado, sofrendo mutações durante o lifecycle
+- Quando um dado é alterado o render é novamente chamado
+- Um componente pode ter apenas um *state object*
+- Tem seu valor alterado utilizando o método *setState*
 
 ---
 
